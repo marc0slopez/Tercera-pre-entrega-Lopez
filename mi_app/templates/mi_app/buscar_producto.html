@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+Buscar Producto
+{% endblock %}
+
+{% block content %}
+<h2>Buscar Producto</h2>
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+{% if productos %}
+    <h3>Resultados</h3>
+    <ul>
+    {% for producto in productos %}
+        <li>{{ producto.nombre }} - {{ producto.precio }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<a href="{% url 'index' %}">Volver a la HomePage</a>
+{% endblock %}
